@@ -8,11 +8,13 @@
 
 /* Body Styling */
 body {
+    margin-top: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background: linear-gradient(to bottom, #eaeaea, #ffffff);
+    margin-bottom: 10px;
 }
 
 /* iPhone Frame */
