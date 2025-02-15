@@ -8,19 +8,24 @@
 
 /* Body Styling */
 body {
-    margin-top: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background: linear-gradient(to bottom, #eaeaea, #ffffff);
-    margin-bottom: 10px;
+    transition: background 0.3s ease;
+}
+
+body.dark-mode {
+    background: linear-gradient(to bottom, #121212, #000000);
+    color: #ffffff;
 }
 
 /* iPhone Frame */
 .iphone-container {
-    width: 375px;
-    height: 812px;
+    width: 90%;
+    max-width: 375px;
+    height: auto;
     background: #f2f2f7;
     border-radius: 40px;
     overflow: hidden;
@@ -28,6 +33,11 @@ body {
         0 10px 20px rgba(0, 0, 0, 0.1),
         inset 0 5px 10px rgba(255, 255, 255, 0.5);
     position: relative;
+    transition: background 0.3s ease;
+}
+
+.iphone-container.dark-mode {
+    background: #1a1a1a;
 }
 
 /* Status Bar */
@@ -41,6 +51,12 @@ body {
     text-align: center;
     font-size: 14px;
     color: #555555;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.status-bar.dark-mode {
+    background: #1a1a1a;
+    color: #ffffff;
 }
 
 .time {
@@ -60,11 +76,16 @@ body {
     box-shadow: 
         inset 0 5px 10px rgba(0, 0, 0, 0.05),
         inset 0 -5px 10px rgba(255, 255, 255, 0.5);
+    transition: background 0.3s ease;
+}
+
+.calculator-container.dark-mode {
+    background: #222222;
 }
 
 /* Display Input */
 #display {
-    width: 100%; /* Full width */
+    width: 100%;
     height: 80px;
     margin-bottom: 20px;
     font-size: 2rem;
@@ -75,18 +96,20 @@ body {
     border: none;
     border-radius: 10px;
     outline: none;
-    box-shadow: 
-        inset 0 2px 5px rgba(0, 0, 0, 0.1);
-    overflow: hidden; /* Prevent content from overflowing */
-    text-overflow: ellipsis; /* Show ellipsis if text overflows */
-    white-space: nowrap; /* Prevent line breaks */
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+#display.dark-mode {
+    background: #1e1e1e;
+    color: #ffffff;
 }
 
 /* Button Grid */
 .buttons {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Equal-width columns */
-    gap: 10px; /* Add spacing between buttons */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
 }
 
 /* Buttons */
@@ -98,45 +121,53 @@ button {
     cursor: pointer;
     background: #ebebeb;
     color: #333333;
-    transition: transform 0.1s ease, box-shadow 0.2s ease;
-    box-shadow: 
-        0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.1s ease, box-shadow 0.2s ease, background 0.3s ease, color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 button:hover {
     transform: translateY(-2px);
-    box-shadow: 
-        0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 button:active {
     transform: translateY(2px);
-    box-shadow: 
-        0 1px 3px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+button.dark-mode {
+    background: #222222;
+    color: #ffffff;
 }
 
 .operator {
     background: #d9d9d9;
-    color: #008080; /* Teal */
+    color: #008080;
 }
 
-.operator:hover {
-    background: #c9c9c9;
+.operator.dark-mode {
+    background: #1a1a1a;
+    color: #008080;
 }
 
 .zero {
     grid-column: span 2;
 }
+
 #eq {
-    grid-row: span 2; 
-    height: auto; 
-    background:#008080;
+    grid-row: span 2;
+    height: auto;
+    background: #008080;
     color: #ffffff;
+}
+
+#eq.dark-mode {
+    background: #005f5f;
 }
 
 /* Currency Converter Section */
 .currency-converter {
-    width: 100%; /* Full width */
+    width: 100%;
     margin-top: 20px;
     display: flex;
     flex-direction: column;
@@ -147,44 +178,93 @@ button:active {
     font-size: 14px;
     color: #555555;
     margin-bottom: 5px;
+    transition: color 0.3s ease;
 }
 
+.currency-converter label.dark-mode {
+    color: #ffffff;
+}
+
+.currency-converter select,
 .currency-converter input,
 .currency-converter button {
-    width: 100%; /* Full width */
+    width: 100%;
     height: 40px;
     margin-bottom: 10px;
     padding: 0 10px;
     border: none;
     border-radius: 10px;
-    box-shadow: 
-        inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.currency-converter select.dark-mode,
+.currency-converter input.dark-mode,
+.currency-converter button.dark-mode {
+    background: #222222;
+    color: #ffffff;
 }
 
 .currency-converter button {
-    background: #008080; /* Teal */
+    background: #008080;
     color: #ffffff;
-    cursor: pointer;
-    transition: transform 0.1s ease, box-shadow 0.2s ease;
 }
 
-.currency-converter button:hover {
-    transform: translateY(-2px);
-    box-shadow: 
-        0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.currency-converter button:active {
-    transform: translateY(2px);
-    box-shadow: 
-        0 1px 3px rgba(0, 0, 0, 0.2);
+.currency-converter button.dark-mode {
+    background: #005f5f;
 }
 
 /* Result Text */
 #result {
     font-size: 16px;
-    color: #008080; /* Teal */
+    color: #008080;
     margin-top: 10px;
-    width: 100%; /* Full width */
-    text-align: center; /* Center-align the result text */
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+#result.dark-mode {
+    color: #00bfbf;
+}
+
+/* Toggle Switch */
+.toggle-switch {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.toggle-switch input[type="checkbox"] {
+    display: none; /* Hide the default checkbox */
+}
+
+.toggle-switch label {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    background: #ccc;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.toggle-switch label::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 26px;
+    height: 26px;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-switch input[type="checkbox"]:checked + label {
+    background: #008080; /* Teal color for dark mode */
+}
+
+.toggle-switch input[type="checkbox"]:checked + label::after {
+    transform: translateX(30px); /* Move the slider to the right */
 }

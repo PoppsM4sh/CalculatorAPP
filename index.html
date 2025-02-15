@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teal Calculator with USD to ZAR Converter</title>
+    <title>Teal Calculator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -34,20 +34,25 @@
                     <button onclick="calculateResult()" class="operator" id="eq">=</button>
                     <button onclick="press('0')" class="zero">0</button>
                     <button onclick="press('.')">.</button>
-                    
                 </div>
                 <!-- Currency Converter Section -->
                 <div class="currency-converter">
-                    <label for="amount">Convert USD to ZAR:</label>
-                    <input type="number" id="amount" placeholder="Enter amount in USD">
-
+                    <label for="from-currency">From:</label>
+                    <select id="from-currency"></select>
+                    <label for="to-currency">To:</label>
+                    <select id="to-currency"></select>
+                    <input type="number" id="amount" placeholder="Enter amount">
                     <button onclick="convertCurrency()">Convert</button>
                     <div id="result"></div>
+                </div>
+                <!-- Toggle Switch -->
+                <div class="toggle-switch">
+                    <input type="checkbox" id="theme-toggle" />
+                    <label for="theme-toggle"></label>
                 </div>
             </div>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
